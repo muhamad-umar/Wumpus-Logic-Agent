@@ -52,5 +52,5 @@ The application creates a grid world with pits, Wumpus, and gold. The agent star
 
 ## 🔗 Connect
 
-- LinkedIn: https://www.linkedin.com/in/your-profile  
-- GitHub: https://github.com/your-username  
+- LinkedIn: www.linkedin.com/in/muhamad-umar  
+- GitHub: https://github.com/muhamad-umar  
