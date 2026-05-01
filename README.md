@@ -1,6 +1,13 @@
 # Wumpus-Logic-Agent
 A web-based simulation of the classic Wumpus World where a knowledge-based agent uses propositional logic and resolution to infer safe moves.
 
+## 🚀 Live Demo
+
+Experience the working AI agent here:
+
+🔗 **Deployed on Vercel:**  
+https://your-project.vercel.app
+
 ## Project Contents
 
 * `index.html` — user interface with configuration controls, a board view, legend, and status dashboard.
@@ -33,9 +40,17 @@ The application creates a grid world with pits, Wumpus, and gold. The agent star
 2. Adjust grid rows, columns, pit count, and Wumpus count.
 3. Click `New Game` to generate a new world.
 4. Use `Step Agent` or `Auto Run` to simulate the agent.
-5. 
+   
+## 👨‍💻 Author
 
-## Author
-**Name:** Muhammad Umar
-**Roll No:** 24F-0605
+**Muhammad Umar**  
+🎓 BS Computer Science Student  
+🏫 FAST-NUCES (CFD Campus)  
+📌 Roll No: 24F-0605  
 
+---
+
+## 🔗 Connect
+
+- LinkedIn: https://www.linkedin.com/in/your-profile  
+- GitHub: https://github.com/your-username  
