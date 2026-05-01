@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Identification: 24F-0736 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Wumpus Logic Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <div class="brand-block">
+                <h1><span class="brand-wumpus">Wumpus</span> Logic Agent</h1>
+                <p>Logic-driven Wumpus World simulation with KB entailment and safe-path decisions.</p>
+            </div>
+            <div class="topbar-controls">
+                <div class="control-group">
+                    <div class="input-group">
+                        <label for="gridRows">Rows</label>
+                        <input type="number" id="gridRows" value="4" min="3" max="8">
+                    </div>
+                    <div class="input-group">
+                        <label for="gridCols">Cols</label>
+                        <input type="number" id="gridCols" value="4" min="3" max="8">
+                    </div>
+                    <div class="input-group">
+                        <label for="pitCount">Pits</label>
+                        <input type="number" id="pitCount" value="2" min="0" max="20">
+                    </div>
+                    <div class="input-group">
+                        <label for="wumpusCount">Wumpus</label>
+                        <input type="number" id="wumpusCount" value="1" min="0" max="20">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="startBtn" class="btn-primary">New Game</button>
+                    <button id="stepBtn" class="btn-secondary" disabled>Step Agent</button>
+                    <button id="autoBtn" class="btn-auto" type="button">Auto Run</button>
+                    <button id="debugBtn" class="btn-debug" type="button">Debug: Off</button>
+                </div>
+            </div>
+        </header>
+
+        <div id="statusBanner" class="status-banner hidden"></div>
+
+        <main class="layout">
+            <aside class="legend-panel legend-side">
+                <h3>Legend</h3>
+                <div class="legend-grid">
+                    <div class="legend-item"><div class="legend-box agent">A</div>Agent</div>
+                    <div class="legend-item"><div class="legend-box safe"></div>Safe</div>
+                    <div class="legend-item"><div class="legend-box unknown"></div>Unknown</div>
+                    <div class="legend-item"><div class="legend-box danger">⚠</div>Hazard</div>
+                    <div class="legend-item"><div class="legend-box pit">🕳</div>Pit</div>
+                    <div class="legend-item"><div class="legend-box wumpus">W</div>Wumpus</div>
+                    <div class="legend-item"><div class="legend-box gold">G</div>Gold</div>
+                </div>
+            </aside>
+
+            <section class="board-panel">
+                <div class="board-header">
+                    <h2>World Grid</h2>
+                    <span class="badge">KB + Resolution Active</span>
+                </div>
+                <div class="board-content">
+                    <div id="grid" class="grid-container"></div>
+                </div>
+            </section>
+
+            <section class="dashboard-panel">
+                <article class="dashboard-card">
+                    <h3>Metrics Dashboard</h3>
+                    <div class="metrics-layout">
+                        <div class="metric-card cnf-card">
+                            <span class="metric-label">CNF Clauses</span>
+                            <pre id="cnfClausesViewer" class="cnf-clauses-viewer">Loading clauses...</pre>
+                        </div>
+                        <div class="metric-stack">
+                            <div class="metric-card">
+                            <span class="metric-label">Resolution Operations</span>
+                            <span class="metric-value" id="resolutionMetric">0</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Inference Steps</span>
+                            <span class="metric-value" id="inferenceMetric">0</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Clause Count</span>
+                            <span class="metric-value" id="kbMetric">0</span>
+                        </div>
+                        <div class="metric-card current-node-card">
+                            <span class="metric-label">Current Node</span>
+                            <span class="metric-value" id="posMetric">(1, 1)</span>
+                        </div>
+                        </div>
+                    </div>
+                    <div id="goldStatus" class="gold-status"></div>
+                </article>
+
+                <article class="dashboard-card">
+                    <h3>Current Percepts</h3>
+                    <div id="perceptsMetric" class="percepts-pill">None</div>
+                </article>
+
+                <article class="dashboard-card">
+                    <h3>KB Entailment Results</h3>
+                    <div id="entailmentSummary" class="entailment-summary">No inference run yet.</div>
+                    <div id="entailmentList" class="entailment-list"></div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <div id="gameOverModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="gameOverTitle">
+        <div class="modal-card">
+            <div class="modal-icon">⚠</div>
+            <h2 id="gameOverTitle">Game Over</h2>
+            <p id="gameOverText">You hit a Pit and the simulation ended.</p>
+            <button id="restartBtn" class="btn-primary modal-btn" type="button">Restart Episode</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
