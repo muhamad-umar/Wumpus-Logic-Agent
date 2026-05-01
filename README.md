@@ -6,7 +6,7 @@ A web-based simulation of the classic Wumpus World where a knowledge-based agent
 Experience the working AI agent here:
 
 🔗 **Deployed on Vercel:**  
-https://your-project.vercel.app
+https://wumpus-logic-agent-rho.vercel.app
 
 ## Project Contents
 
